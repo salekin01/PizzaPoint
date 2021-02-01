@@ -11,9 +11,10 @@ import java.sql.*;
 public class PizzaPointApiApplication {
 
     public static void main(String[] args){
-        ApplicationContext c = SpringApplication.run(PizzaPointApiApplication.class, args);
+        SpringApplication.run(PizzaPointApiApplication.class, args);
 
-        BakerRepository repo = c.getBean(BakerRepository.class);
+        //ApplicationContext c = SpringApplication.run(PizzaPointApiApplication.class, args);
+        //BakerRepository repo = c.getBean(BakerRepository.class);
         //var create = repo.sp_baker_create("tuhin", "bangladesh", "81191144", "tuhin@gmail.com");
         //var update = repo.sp_baker_update(1,"salekin", "usa", "911", "salekin@gmail.com");
         //var delete = repo.sp_baker_delete(24);
