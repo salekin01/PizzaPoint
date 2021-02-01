@@ -13,7 +13,7 @@ public class BakerController {
     @Autowired
     BakerRepository bakerRepository;
 
-    @GetMapping("/api/baker")
+    @GetMapping("/api/Baker")
     public List<Baker> bakerList() {
         return bakerRepository.fn_baker_get_all();
     }

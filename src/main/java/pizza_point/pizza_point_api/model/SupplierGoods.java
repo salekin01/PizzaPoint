@@ -1,5 +1,7 @@
 package pizza_point.pizza_point_api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,9 +30,11 @@ public class SupplierGoods {
     @Column(name = "discontinued")
     private String discontinued;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "created_date")
     private String createdDate;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "updated_date")
     private String updatedDate;
 

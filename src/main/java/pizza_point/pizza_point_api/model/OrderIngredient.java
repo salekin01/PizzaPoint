@@ -1,5 +1,7 @@
 package pizza_point.pizza_point_api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -17,12 +19,15 @@ public class OrderIngredient {
     @Column(name = "supplier_id")
     private Long supplierId;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "order_date")
     private LocalDateTime orderDate;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "required_date")
     private LocalDateTime requiredDate;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "shipped_date")
     private LocalDateTime shippedDate;
 
