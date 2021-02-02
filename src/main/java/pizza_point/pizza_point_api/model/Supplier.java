@@ -40,7 +40,7 @@ public class Supplier {
     private LocalDateTime updatedDate;
 
     @Column(name = "hidden")
-    private String hidden;
+    private boolean hidden;
 
     public Long getSupplierId() {
         return this.supplierId;
@@ -114,11 +114,11 @@ public class Supplier {
         this.updatedDate = updatedDate;
     }
 
-    public String getHidden() {
+    public boolean getHidden() {
         return this.hidden;
     }
 
-    public void setHidden(String hidden) {
+    public void setHidden(boolean hidden) {
         this.hidden = hidden;
     }
 }
