@@ -13,7 +13,7 @@ public class RegionalProvinceController {
     RegionalProvinceRepository regionalProvinceRepository;
 
     @GetMapping("/api/regionalProvince")
-    public List<RegionalProvince> bakerList() {
+    public List<RegionalProvince> regionalProvinceList() {
         return regionalProvinceRepository.fn_regional_province_get_all();
     }
 

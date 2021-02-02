@@ -13,7 +13,7 @@ public class SupplierController {
     SupplierRepository supplierRepository;
 
     @GetMapping("/api/supplier")
-    public List<Supplier> bakerList() {
+    public List<Supplier> supplierList() {
         return supplierRepository.fn_supplier_get_all();
     }
 

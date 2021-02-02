@@ -13,12 +13,12 @@ public class OrderPizzaDetailController {
     OrderPizzaDetailRepository orderPizzaDetailRepository;
 
     @GetMapping("/api/orderPizzaDetail")
-    public List<OrderPizzaDetail> list() {
+    public List<OrderPizzaDetail> orderPizzaDetailList() {
         return orderPizzaDetailRepository.fn_order_pizza_detail_get_all();
     }
 
     @GetMapping("/api/orderPizzaDetailByPizzaId/{id}")
-    public List<OrderPizzaDetail> listByPizzaId(@PathVariable String id) {
+    public List<OrderPizzaDetail> orderPizzaDetailListByPizzaId(@PathVariable String id) {
         long p_id = Long.parseLong(id);
         var result = orderPizzaDetailRepository.fn_order_pizza_detail_get_by_order_pizza_id(p_id);
         return result;

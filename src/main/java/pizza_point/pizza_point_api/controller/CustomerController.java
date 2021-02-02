@@ -13,7 +13,7 @@ public class CustomerController {
     CustomerRepository customerRepository;
 
     @GetMapping("/api/customer")
-    public List<Customer> bakerList() {
+    public List<Customer> customerList() {
         return customerRepository.fn_customer_get_all();
     }
 

@@ -13,7 +13,7 @@ public class PizzaSizeController {
     PizzaSizeRepository pizzaSizeRepository;
 
     @GetMapping("/api/pizzaSize")
-    public List<PizzaSize> bakerList() {
+    public List<PizzaSize> pizzaSizeList() {
         return pizzaSizeRepository.fn_pizza_size_get_all();
     }
 

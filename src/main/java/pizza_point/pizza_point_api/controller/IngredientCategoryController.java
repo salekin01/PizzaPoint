@@ -13,7 +13,7 @@ public class IngredientCategoryController {
     IngredientCategoryRepository ingredientCategoryRepository;
 
     @GetMapping("/api/ingredientCategory")
-    public List<IngredientCategory> bakerList() {
+    public List<IngredientCategory> ingredientCategoryList() {
         return ingredientCategoryRepository.fn_ingredient_category_get_all();
     }
 
