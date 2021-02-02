@@ -14,13 +14,13 @@ public class PizzaSize {
     private Long pizzaSizeId;
 
     @Column(name = "size_in_inch")
-    private Long sizeInInch;
+    private int sizeInInch;
 
     @Column(name = "size_in_text")
     private String sizeInText;
 
-    @Column(name = "slice")
-    private Long slice;
+    @Column(name = "total_slice")
+    private int totalSlice;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "created_date")
@@ -38,11 +38,11 @@ public class PizzaSize {
         this.pizzaSizeId = pizzaSizeId;
     }
 
-    public Long getSizeInInch() {
+    public int getSizeInInch() {
         return this.sizeInInch;
     }
 
-    public void setSizeInInch(Long sizeInInch) {
+    public void setSizeInInch(int sizeInInch) {
         this.sizeInInch = sizeInInch;
     }
 
@@ -54,12 +54,12 @@ public class PizzaSize {
         this.sizeInText = sizeInText;
     }
 
-    public Long getSlice() {
-        return this.slice;
+    public int getTotalSlice() {
+        return this.totalSlice;
     }
 
-    public void setSlice(Long slice) {
-        this.slice = slice;
+    public void setTotalSlice(int totalSlice) {
+        this.totalSlice = totalSlice;
     }
 
     public LocalDateTime getCreatedDate() {
