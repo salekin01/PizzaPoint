@@ -27,4 +27,7 @@ public interface OrderPizzaDetailRepository extends JpaRepository<OrderPizzaDeta
 
     @Query(value = "select * from public.fn_order_pizza_detail_get_by_order_pizza_id(?1)", nativeQuery = true)
     List<OrderPizzaDetail> fn_order_pizza_detail_get_by_order_pizza_id(long p_order_pizza_id);
+
+    @Query(value = "call public.sp_order_pizza_detail_delete_by_order_pizza_id(?1,0)", nativeQuery = true)
+    int sp_order_pizza_detail_delete_by_order_pizza_id(long p_order_pizza_id);
 }

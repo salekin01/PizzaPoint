@@ -63,4 +63,16 @@ public class OrderPizzaDetailController {
             return 0;
         }
     }
+
+    @DeleteMapping("/api/orderPizzaDetailByOrderPizzaId/{id}")
+    public int deleteByOrderPizzaId(@PathVariable String id){
+        try {
+            long p_id = Long.parseLong(id);
+            orderPizzaDetailRepository.sp_order_pizza_detail_delete_by_order_pizza_id(p_id);
+            return 1;
+        }
+        catch (Exception e){
+            return 0;
+        }
+    }
 }
