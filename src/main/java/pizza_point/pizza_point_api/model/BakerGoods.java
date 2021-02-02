@@ -3,6 +3,7 @@ package pizza_point.pizza_point_api.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,16 +18,16 @@ public class BakerGoods {
     private Long supplierGoodsId;
 
     @Column(name = "quantity_per_unit")
-    private Long quantityPerUnit;
+    private int quantityPerUnit;
 
     @Column(name = "unit_price")
-    private String unitPrice;
+    private BigDecimal unitPrice;
 
     @Column(name = "units_in_stock")
-    private Long unitsInStock;
+    private int unitsInStock;
 
-    @Column(name = "discontinued")
-    private String discontinued;
+    @Column(name = "hidden")
+    private boolean hidden;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "created_date")
@@ -52,36 +53,36 @@ public class BakerGoods {
         this.supplierGoodsId = supplierGoodsId;
     }
 
-    public Long getQuantityPerUnit() {
+    public int getQuantityPerUnit() {
         return this.quantityPerUnit;
     }
 
-    public void setQuantityPerUnit(Long quantityPerUnit) {
+    public void setQuantityPerUnit(int quantityPerUnit) {
         this.quantityPerUnit = quantityPerUnit;
     }
 
-    public String getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return this.unitPrice;
     }
 
-    public void setUnitPrice(String unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public Long getUnitsInStock() {
+    public int getUnitsInStock() {
         return this.unitsInStock;
     }
 
-    public void setUnitsInStock(Long unitsInStock) {
+    public void setUnitsInStock(int unitsInStock) {
         this.unitsInStock = unitsInStock;
     }
 
-    public String getDiscontinued() {
-        return this.discontinued;
+    public boolean getHidden() {
+        return this.hidden;
     }
 
-    public void setDiscontinued(String discontinued) {
-        this.discontinued = discontinued;
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
     }
 
     public LocalDateTime getCreatedDate() {

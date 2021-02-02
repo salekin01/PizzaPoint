@@ -3,6 +3,7 @@ package pizza_point.pizza_point_api.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,13 +21,13 @@ public class OrderPizza {
     private Long customerId;
 
     @Column(name = "quantity")
-    private Long quantity;
+    private int quantity;
 
     @Column(name = "discount")
-    private Long discount;
+    private int discount;
 
     @Column(name = "total_price")
-    private String totalPrice;
+    private BigDecimal totalPrice;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "order_date")
@@ -67,27 +68,27 @@ public class OrderPizza {
         this.customerId = customerId;
     }
 
-    public Long getQuantity() {
+    public int getQuantity() {
         return this.quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Long getDiscount() {
+    public int getDiscount() {
         return this.discount;
     }
 
-    public void setDiscount(Long discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 
-    public String getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return this.totalPrice;
     }
 
-    public void setTotalPrice(String totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
