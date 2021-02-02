@@ -13,7 +13,7 @@ public class OrderIngredientDetailController {
     OrderIngredientDetailRepository orderIngredientDetailRepository;
 
     @GetMapping("/api/orderIngredientDetail")
-    public List<OrderIngredientDetail> bakerList() {
+    public List<OrderIngredientDetail> orderIngredientDetailList() {
         return orderIngredientDetailRepository.fn_order_ingredient_detail_get_all();
     }
 
