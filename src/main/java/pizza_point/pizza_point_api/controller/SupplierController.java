@@ -20,7 +20,7 @@ public class SupplierController {
     @GetMapping("/api/supplier/{id}")
     public Supplier show(@PathVariable String id) {
         long p_id = Long.parseLong(id);
-        var result = supplierRepository.fn_supplier_get_by_category_id(p_id);
+        var result = supplierRepository.fn_supplier_get_by_supplier_id(p_id);
         return result;
     }
 

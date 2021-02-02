@@ -21,6 +21,6 @@ public interface SupplierRepository extends JpaRepository<Supplier, Long> {
     @Query(value = "select * from public.fn_supplier_get_all()", nativeQuery = true)
     List<Supplier> fn_supplier_get_all();
 
-    @Query(value = "select * from public.fn_supplier_get_by_category_id(?1)", nativeQuery = true)
-    Supplier fn_supplier_get_by_category_id(long p_supplier_id);
+    @Query(value = "select * from public.fn_supplier_get_by_supplier_id(?1)", nativeQuery = true)
+    Supplier fn_supplier_get_by_supplier_id(long p_supplier_id);
 }
