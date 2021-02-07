@@ -7,6 +7,7 @@ import pizza_point.pizza_point_api.repository.OrderIngredientDetailRepository;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class OrderIngredientDetailController {
     @Autowired

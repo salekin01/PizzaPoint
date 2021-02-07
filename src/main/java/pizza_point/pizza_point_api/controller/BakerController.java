@@ -8,12 +8,13 @@ import pizza_point.pizza_point_api.repository.BakerRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class BakerController {
     @Autowired
     BakerRepository bakerRepository;
 
-    @GetMapping("/api/Baker")
+    @GetMapping("/api/baker")
     public List<Baker> bakerList() {
         return bakerRepository.fn_baker_get_all();
     }
@@ -35,6 +36,7 @@ public class BakerController {
             return 0;
         }
     }
+
     @PostMapping("/api/baker/{id}")
     public int update(@RequestBody Baker body){
         try {
