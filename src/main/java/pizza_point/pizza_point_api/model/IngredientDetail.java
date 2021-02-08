@@ -29,9 +29,11 @@ public class IngredientDetail {
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
-    
+
+    @Column(name = "category_name")
     private String ingredientCategoryName;
 
+    @Column(name = "regional_province_name")
     private String regionalProvinceName;
 
     public Long getIngredientId() {
@@ -88,5 +90,13 @@ public class IngredientDetail {
 
     public void setIngredientCategoryName(String ingredientCategoryName) {
         this.ingredientCategoryName = ingredientCategoryName;
+    }
+
+    public String getRegionalProvinceName() {
+        return regionalProvinceName;
+    }
+
+    public void setRegionalProvinceName(String regionalProvinceName) {
+        this.regionalProvinceName = regionalProvinceName;
     }
 }

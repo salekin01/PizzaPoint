@@ -15,7 +15,8 @@ public class IngredientDetailController {
 
     @GetMapping("/api/ingredientDetail")
     public List<IngredientDetail> ingredientDetailList() {
-        return ingredientDetailRepository.fn_ingredient_detail_get_all();
+        var result = ingredientDetailRepository.fn_ingredient_detail_get_all();
+        return result;
     }
 
     @GetMapping("/api/ingredientDetail/{id}")
