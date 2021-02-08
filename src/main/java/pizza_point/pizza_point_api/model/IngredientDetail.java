@@ -29,6 +29,10 @@ public class IngredientDetail {
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
+    
+    private String ingredientCategoryName;
+
+    private String regionalProvinceName;
 
     public Long getIngredientId() {
         return this.ingredientId;
@@ -76,5 +80,13 @@ public class IngredientDetail {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public String getIngredientCategoryName() {
+        return ingredientCategoryName;
+    }
+
+    public void setIngredientCategoryName(String ingredientCategoryName) {
+        this.ingredientCategoryName = ingredientCategoryName;
     }
 }
