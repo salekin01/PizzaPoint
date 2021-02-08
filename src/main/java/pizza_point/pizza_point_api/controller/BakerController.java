@@ -29,7 +29,7 @@ public class BakerController {
     @PostMapping("/api/baker")
     public int create(@RequestBody Baker body){
         try {
-            bakerRepository.sp_baker_create(body.getBakerName(), body.getAddress(), body.getPhone(), body.getEmail());
+            bakerRepository.sp_baker_create(body.getBakerName(), body.getAddress(), body.getPhone(), body.getEmail(), body.getPassword());
             return 1;
         }
         catch (Exception e){
@@ -40,7 +40,7 @@ public class BakerController {
     @PostMapping("/api/baker/{id}")
     public int update(@RequestBody Baker body){
         try {
-            bakerRepository.sp_baker_update(body.getBakerId(), body.getBakerName(),body.getAddress(),body.getPhone(),body.getEmail());
+            bakerRepository.sp_baker_update(body.getBakerId(), body.getBakerName(),body.getAddress(),body.getPhone(),body.getEmail(), body.getPassword());
             return 1;
         }
         catch (Exception e){

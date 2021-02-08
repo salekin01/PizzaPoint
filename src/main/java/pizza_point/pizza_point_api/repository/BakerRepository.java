@@ -15,11 +15,11 @@ public interface BakerRepository extends JpaRepository<Baker, Long> {
 //            @Param("p_address") String address,
 //            @Param("p_phone") String phone,
 //            @Param("p_email") String email);
-    @Query(value = "call public.sp_baker_create(?1,?2,?3,?4,0)", nativeQuery = true)
-    int sp_baker_create(String p_name, String p_address, String p_phone, String p_email);
+    @Query(value = "call public.sp_baker_create(?1,?2,?3,?4,?5,0)", nativeQuery = true)
+    int sp_baker_create(String p_name, String p_address, String p_phone, String p_email, String p_password);
 
-    @Query(value = "call public.sp_baker_update(?1,?2,?3,?4,?5,0)", nativeQuery = true)
-    int sp_baker_update(long p_baker_id, String p_name, String p_address, String p_phone, String p_email);
+    @Query(value = "call public.sp_baker_update(?1,?2,?3,?4,?5,?6,0)", nativeQuery = true)
+    int sp_baker_update(long p_baker_id, String p_name, String p_address, String p_phone, String p_email, String p_password);
 
     @Query(value = "call public.sp_baker_delete(?1,0)", nativeQuery = true)
     int sp_baker_delete(long p_baker_id);

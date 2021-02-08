@@ -9,11 +9,11 @@ import java.util.List;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    @Query(value = "call public.sp_customer_create(?1,?2,?3,?4,?5,0)", nativeQuery = true)
-    int sp_customer_create(String p_customer_name, String p_address, String p_phone, String p_email, String p_shipping_info);
+    @Query(value = "call public.sp_customer_create(?1,?2,?3,?4,?5,?6,0)", nativeQuery = true)
+    int sp_customer_create(String p_customer_name, String p_address, String p_phone, String p_email, String p_shipping_info, String p_password);
 
-    @Query(value = "call public.sp_customer_update(?1,?2,?3,?4,?5,?6,0)", nativeQuery = true)
-    int sp_customer_update(long p_customer_id, String p_customer_name, String p_address, String p_phone, String p_email, String p_shipping_info);
+    @Query(value = "call public.sp_customer_update(?1,?2,?3,?4,?5,?6,?7,0)", nativeQuery = true)
+    int sp_customer_update(long p_customer_id, String p_customer_name, String p_address, String p_phone, String p_email, String p_shipping_info, String p_password);
 
     @Query(value = "call public.sp_customer_delete(?1,0)", nativeQuery = true)
     int sp_customer_delete(long p_customer_id);

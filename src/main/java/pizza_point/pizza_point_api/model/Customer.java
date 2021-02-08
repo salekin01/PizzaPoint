@@ -28,6 +28,12 @@ public class Customer {
     @Column(name = "shipping_info")
     private String shippingInfo;
 
+    @Column(name = "pass")
+    private String password;
+
+    @Column(name = "role_id")
+    private long roleId;
+
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "created_date")
     private LocalDateTime createdDate;
@@ -82,6 +88,22 @@ public class Customer {
 
     public void setShippingInfo(String shippingInfo) {
         this.shippingInfo = shippingInfo;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public LocalDateTime getCreatedDate() {

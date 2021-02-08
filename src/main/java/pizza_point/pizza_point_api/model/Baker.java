@@ -25,6 +25,12 @@ public class Baker {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "pass")
+    private String password;
+
+    @Column(name = "role_id")
+    private long roleId;
+
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "created_date")
     private LocalDateTime createdDate;
@@ -71,6 +77,22 @@ public class Baker {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public LocalDateTime getCreatedDate() {

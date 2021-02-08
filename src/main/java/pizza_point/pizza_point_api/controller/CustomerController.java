@@ -28,7 +28,7 @@ public class CustomerController {
     @PostMapping("/api/customer")
     public int create(@RequestBody Customer body){
         try {
-            customerRepository.sp_customer_create(body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo());
+            var result = customerRepository.sp_customer_create(body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo(),body.getPassword());
             return 1;
         }
         catch (Exception e){
@@ -38,7 +38,7 @@ public class CustomerController {
     @PostMapping("/api/customer/{id}")
     public int update(@RequestBody Customer body){
         try {
-            customerRepository.sp_customer_update(body.getCustomerId(), body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo());
+            customerRepository.sp_customer_update(body.getCustomerId(), body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo(),body.getPassword());
             return 1;
         }
         catch (Exception e){
