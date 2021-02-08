@@ -28,36 +28,42 @@ public class OrderPizzaController {
     @PostMapping("/api/orderPizza")
     public int create(@RequestBody OrderPizza body){
         try {
-            orderPizzaRepository.sp_order_pizza_create(body.getPizzaId(), body.getCustomerId(), body.getQuantity(),
+            var result = orderPizzaRepository.sp_order_pizza_create(body.getPizzaId(), body.getCustomerId(), body.getQuantity(),
                                                        body.getDiscount(), body.getTotalPrice(), body.getRequiredDate());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/orderPizza/{id}")
     public int update(@RequestBody OrderPizza body){
         try {
-            orderPizzaRepository.sp_order_pizza_update(body.getOrderPizzaId(), body.getPizzaId(), body.getCustomerId(),
+            var result = orderPizzaRepository.sp_order_pizza_update(body.getOrderPizzaId(), body.getPizzaId(), body.getCustomerId(),
                                                        body.getQuantity(),body.getDiscount(), body.getTotalPrice(),
                                                        body.getRequiredDate());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/orderPizza/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            orderPizzaRepository.sp_order_pizza_delete(p_id);
-            return 1;
+            var result = orderPizzaRepository.sp_order_pizza_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

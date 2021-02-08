@@ -28,33 +28,39 @@ public class RegionalProvinceController {
     @PostMapping("/api/regionalProvince")
     public int create(@RequestBody RegionalProvince body){
         try {
-            regionalProvinceRepository.sp_regional_province_create(body.getRegionalProvinceName());
-            return 1;
+            var result = regionalProvinceRepository.sp_regional_province_create(body.getRegionalProvinceName());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/regionalProvince/{id}")
     public int update(@RequestBody RegionalProvince body){
         try {
-            regionalProvinceRepository.sp_regional_province_update(body.getRegionalProvinceId(), body.getRegionalProvinceName());
-            return 1;
+            var result = regionalProvinceRepository.sp_regional_province_update(body.getRegionalProvinceId(), body.getRegionalProvinceName());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/regionalProvince/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            regionalProvinceRepository.sp_regional_province_delete(p_id);
-            return 1;
+            var result = regionalProvinceRepository.sp_regional_province_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

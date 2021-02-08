@@ -29,32 +29,38 @@ public class CustomerController {
     public int create(@RequestBody Customer body){
         try {
             var result = customerRepository.sp_customer_create(body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo(),body.getPassword());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/customer/{id}")
     public int update(@RequestBody Customer body){
         try {
-            customerRepository.sp_customer_update(body.getCustomerId(), body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo(),body.getPassword());
-            return 1;
+            var result = customerRepository.sp_customer_update(body.getCustomerId(), body.getCustomerName(), body.getAddress(), body.getPhone(),body.getEmail(),body.getShippingInfo(),body.getPassword());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/customer/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            customerRepository.sp_customer_delete(p_id);
-            return 1;
+            var result = customerRepository.sp_customer_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

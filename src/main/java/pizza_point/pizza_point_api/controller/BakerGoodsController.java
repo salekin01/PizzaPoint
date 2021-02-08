@@ -28,35 +28,41 @@ public class BakerGoodsController {
     @PostMapping("/api/bakerGoods")
     public int create(@RequestBody BakerGoods body){
         try {
-            bakerGoodsRepository.sp_baker_goods_create(body.getSupplierGoodsId(), body.getQuantityPerUnit(), body.getUnitPrice(),
+            var result = bakerGoodsRepository.sp_baker_goods_create(body.getSupplierGoodsId(), body.getQuantityPerUnit(), body.getUnitPrice(),
                                                        body.getUnitsInStock(), body.getHidden());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/bakerGoods/{id}")
     public int update(@RequestBody BakerGoods body){
         try {
-            bakerGoodsRepository.sp_baker_goods_update(body.getBakerGoodsId(), body.getSupplierGoodsId(), body.getQuantityPerUnit(),
+            var result = bakerGoodsRepository.sp_baker_goods_update(body.getBakerGoodsId(), body.getSupplierGoodsId(), body.getQuantityPerUnit(),
                                                        body.getUnitPrice(),body.getUnitsInStock(), body.getHidden());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/bakerGoods/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            bakerGoodsRepository.sp_baker_goods_delete(p_id);
-            return 1;
+            var result = bakerGoodsRepository.sp_baker_goods_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

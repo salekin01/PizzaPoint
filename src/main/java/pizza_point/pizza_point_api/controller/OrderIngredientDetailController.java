@@ -28,22 +28,26 @@ public class OrderIngredientDetailController {
     @PostMapping("/api/orderIngredientDetail")
     public int create(@RequestBody OrderIngredientDetail body){
         try {
-            orderIngredientDetailRepository.sp_order_ingredient_detail_create(body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
-            return 1;
+            var result = orderIngredientDetailRepository.sp_order_ingredient_detail_create(body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/orderIngredientDetail/{id}")
     public int update(@RequestBody OrderIngredientDetail body){
         try {
-            orderIngredientDetailRepository.sp_order_ingredient_detail_update(body.getOrderIngredientDetailId(), body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
-            return 1;
+            var result = orderIngredientDetailRepository.sp_order_ingredient_detail_update(body.getOrderIngredientDetailId(), body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/orderIngredientDetail/{id}")

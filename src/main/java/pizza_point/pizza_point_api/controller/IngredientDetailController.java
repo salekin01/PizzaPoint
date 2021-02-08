@@ -28,33 +28,39 @@ public class IngredientDetailController {
     @PostMapping("/api/ingredientDetail")
     public int create(@RequestBody IngredientDetail body){
         try {
-            ingredientDetailRepository.sp_ingredient_detail_create(body.getIngredientName(), body.getIngredientCategoryId(), body.getRegionalProvinceId());
-            return 1;
+            var result = ingredientDetailRepository.sp_ingredient_detail_create(body.getIngredientName(), body.getIngredientCategoryId(), body.getRegionalProvinceId());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/ingredientDetail/{id}")
     public int update(@RequestBody IngredientDetail body){
         try {
-            ingredientDetailRepository.sp_ingredient_detail_update(body.getIngredientId(), body.getIngredientName(), body.getIngredientCategoryId(), body.getRegionalProvinceId());
-            return 1;
+            var result = ingredientDetailRepository.sp_ingredient_detail_update(body.getIngredientId(), body.getIngredientName(), body.getIngredientCategoryId(), body.getRegionalProvinceId());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/ingredientDetail/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            ingredientDetailRepository.sp_ingredient_detail_delete(p_id);
-            return 1;
+            var result = ingredientDetailRepository.sp_ingredient_detail_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

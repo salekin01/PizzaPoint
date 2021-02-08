@@ -28,34 +28,40 @@ public class OrderIngredientController {
     @PostMapping("/api/orderIngredient")
     public int create(@RequestBody OrderIngredient body){
         try {
-            orderIngredientRepository.sp_order_ingredient_create(body.getBakerId(), body.getSupplierId(), body.getRequiredDate());
-            return 1;
+            var result = orderIngredientRepository.sp_order_ingredient_create(body.getBakerId(), body.getSupplierId(), body.getRequiredDate());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/orderIngredient/{id}")
     public int update(@RequestBody OrderIngredient body){
         try {
-            orderIngredientRepository.sp_order_ingredient_update(body.getOrderIngredientId(), body.getBakerId(),
+            var result = orderIngredientRepository.sp_order_ingredient_update(body.getOrderIngredientId(), body.getBakerId(),
                                                                  body.getSupplierId(), body.getRequiredDate());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/orderIngredient/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            orderIngredientRepository.sp_order_ingredient_delete(p_id);
-            return 1;
+            var result = orderIngredientRepository.sp_order_ingredient_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

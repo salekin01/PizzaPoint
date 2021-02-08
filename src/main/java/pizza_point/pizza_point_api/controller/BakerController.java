@@ -29,34 +29,40 @@ public class BakerController {
     @PostMapping("/api/baker")
     public int create(@RequestBody Baker body){
         try {
-            bakerRepository.sp_baker_create(body.getBakerName(), body.getAddress(), body.getPhone(), body.getEmail(), body.getPassword());
-            return 1;
+            var result = bakerRepository.sp_baker_create(body.getBakerName(), body.getAddress(), body.getPhone(), body.getEmail(), body.getPassword());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @PostMapping("/api/baker/{id}")
     public int update(@RequestBody Baker body){
         try {
-            bakerRepository.sp_baker_update(body.getBakerId(), body.getBakerName(),body.getAddress(),body.getPhone(),body.getEmail(), body.getPassword());
-            return 1;
+            var result = bakerRepository.sp_baker_update(body.getBakerId(), body.getBakerName(),body.getAddress(),body.getPhone(),body.getEmail(), body.getPassword());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/baker/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            bakerRepository.sp_baker_delete(p_id);
-            return 1;
+            var result = bakerRepository.sp_baker_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

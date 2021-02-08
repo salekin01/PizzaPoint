@@ -35,45 +35,53 @@ public class OrderPizzaDetailController {
     @PostMapping("/api/orderPizzaDetail")
     public int create(@RequestBody OrderPizzaDetail body){
         try {
-            orderPizzaDetailRepository.sp_order_pizza_detail_create(body.getOrderPizzaId(), body.getBakerGoodsId());
-            return 1;
+            var result = orderPizzaDetailRepository.sp_order_pizza_detail_create(body.getOrderPizzaId(), body.getBakerGoodsId());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/orderPizzaDetail/{id}")
     public int update(@RequestBody OrderPizzaDetail body){
         try {
-            orderPizzaDetailRepository.sp_order_pizza_detail_update(body.getOrderPizzaDetailId(), body.getOrderPizzaId(), body.getBakerGoodsId());
-            return 1;
+            var result = orderPizzaDetailRepository.sp_order_pizza_detail_update(body.getOrderPizzaDetailId(), body.getOrderPizzaId(), body.getBakerGoodsId());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/orderPizzaDetail/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            orderPizzaDetailRepository.sp_order_pizza_detail_delete(p_id);
-            return 1;
+            var result = orderPizzaDetailRepository.sp_order_pizza_detail_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/orderPizzaDetailByOrderPizzaId/{id}")
     public int deleteByOrderPizzaId(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            orderPizzaDetailRepository.sp_order_pizza_detail_delete_by_order_pizza_id(p_id);
-            return 1;
+            var result = orderPizzaDetailRepository.sp_order_pizza_detail_delete_by_order_pizza_id(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

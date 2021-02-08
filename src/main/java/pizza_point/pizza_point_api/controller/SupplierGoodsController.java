@@ -28,36 +28,42 @@ public class SupplierGoodsController {
     @PostMapping("/api/supplierGoods")
     public int create(@RequestBody SupplierGoods body){
         try {
-            supplierGoodsRepository.sp_supplier_goods_create(body.getSupplierId(), body.getIngredientId(), body.getQuantityPerUnit(),
+            var result = supplierGoodsRepository.sp_supplier_goods_create(body.getSupplierId(), body.getIngredientId(), body.getQuantityPerUnit(),
                                                              body.getUnitPrice(), body.getUnitsInStock(), body.getHidden());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/supplierGoods/{id}")
     public int update(@RequestBody SupplierGoods body){
         try {
-            supplierGoodsRepository.sp_supplier_goods_update(body.getSupplierGoodsId(), body.getSupplierId(), body.getIngredientId(),
+            var result =  supplierGoodsRepository.sp_supplier_goods_update(body.getSupplierGoodsId(), body.getSupplierId(), body.getIngredientId(),
                                                             body.getQuantityPerUnit(), body.getUnitPrice(), body.getUnitsInStock(),
                                                             body.getHidden());
-            return 1;
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/supplierGoods/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            supplierGoodsRepository.sp_supplier_goods_delete(p_id);
-            return 1;
+            var result = supplierGoodsRepository.sp_supplier_goods_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

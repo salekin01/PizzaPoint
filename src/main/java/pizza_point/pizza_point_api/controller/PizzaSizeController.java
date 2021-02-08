@@ -28,33 +28,39 @@ public class PizzaSizeController {
     @PostMapping("/api/pizzaSize")
     public int create(@RequestBody PizzaSize body){
         try {
-            pizzaSizeRepository.sp_pizza_size_create(body.getSizeInInch(), body.getSizeInText(), body.getTotalSlice());
-            return 1;
+            var result = pizzaSizeRepository.sp_pizza_size_create(body.getSizeInInch(), body.getSizeInText(), body.getTotalSlice());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/pizzaSize/{id}")
     public int update(@RequestBody PizzaSize body){
         try {
-            pizzaSizeRepository.sp_pizza_size_update(body.getPizzaSizeId(), body.getSizeInInch(), body.getSizeInText(), body.getTotalSlice());
-            return 1;
+            var result = pizzaSizeRepository.sp_pizza_size_update(body.getPizzaSizeId(), body.getSizeInInch(), body.getSizeInText(), body.getTotalSlice());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/pizzaSize/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            pizzaSizeRepository.sp_pizza_size_delete(p_id);
-            return 1;
+            var result = pizzaSizeRepository.sp_pizza_size_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }

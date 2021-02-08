@@ -28,33 +28,39 @@ public class IngredientCategoryController {
     @PostMapping("/api/ingredientCategory")
     public int create(@RequestBody IngredientCategory body){
         try {
-            ingredientCategoryRepository.sp_ingredient_category_create(body.getCategoryName());
-            return 1;
+            var result = ingredientCategoryRepository.sp_ingredient_category_create(body.getCategoryName());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
     @PostMapping("/api/ingredientCategory/{id}")
     public int update(@RequestBody IngredientCategory body){
         try {
-            ingredientCategoryRepository.sp_ingredient_category_update(body.getIngredientCategoryId(), body.getCategoryName());
-            return 1;
+            var result = ingredientCategoryRepository.sp_ingredient_category_update(body.getIngredientCategoryId(), body.getCategoryName());
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 
     @DeleteMapping("/api/ingredientCategory/{id}")
     public int delete(@PathVariable String id){
         try {
             long p_id = Long.parseLong(id);
-            ingredientCategoryRepository.sp_ingredient_category_delete(p_id);
-            return 1;
+            var result = ingredientCategoryRepository.sp_ingredient_category_delete(p_id);
+            if(result == 1) {
+                return 1;
+            }
         }
         catch (Exception e){
-            return 0;
         }
+        return 0;
     }
 }
