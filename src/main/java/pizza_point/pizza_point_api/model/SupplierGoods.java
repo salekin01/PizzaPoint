@@ -40,6 +40,25 @@ public class SupplierGoods {
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
 
+    //--------------------------------------------------------------------------------------
+    @Column(name = "ingredient_category_id")
+    private Long ingredientCategoryId;
+
+    @Column(name = "regional_province_id")
+    private Long regionalProvinceId;
+
+    @Column(name = "supplier_name")
+    private String supplierName;
+
+    @Column(name = "ingredient_name")
+    private String ingredientName;
+
+    @Column(name = "category_name")
+    private String ingredientCategoryName;
+
+    @Column(name = "regional_province_name")
+    private String regionalProvinceName;
+
     public Long getSupplierGoodsId() {
         return this.supplierGoodsId;
     }
@@ -110,5 +129,55 @@ public class SupplierGoods {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    //---------------------------------------------------------------------
+
+    public Long getIngredientCategoryId() {
+        return ingredientCategoryId;
+    }
+
+    public void setIngredientCategoryId(Long ingredientCategoryId) {
+        this.ingredientCategoryId = ingredientCategoryId;
+    }
+
+    public Long getRegionalProvinceId() {
+        return regionalProvinceId;
+    }
+
+    public void setRegionalProvinceId(Long regionalProvinceId) {
+        this.regionalProvinceId = regionalProvinceId;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
+    public String getIngredientCategoryName() {
+        return ingredientCategoryName;
+    }
+
+    public void setIngredientCategoryName(String ingredientCategoryName) {
+        this.ingredientCategoryName = ingredientCategoryName;
+    }
+
+    public String getRegionalProvinceName() {
+        return regionalProvinceName;
+    }
+
+    public void setRegionalProvinceName(String regionalProvinceName) {
+        this.regionalProvinceName = regionalProvinceName;
     }
 }

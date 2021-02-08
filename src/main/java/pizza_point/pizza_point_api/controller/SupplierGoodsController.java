@@ -15,7 +15,8 @@ public class SupplierGoodsController {
 
     @GetMapping("/api/supplierGoods")
     public List<SupplierGoods> supplierGoodsList() {
-        return supplierGoodsRepository.fn_supplier_goods_get_all();
+        var result = supplierGoodsRepository.fn_supplier_goods_get_all();
+        return result;
     }
 
     @GetMapping("/api/supplierGoods/{id}")

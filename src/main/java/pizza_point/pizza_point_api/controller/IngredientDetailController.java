@@ -19,6 +19,12 @@ public class IngredientDetailController {
         return result;
     }
 
+    @GetMapping("/api/ingredientDetailTable")   //Does not work
+    public List<IngredientDetail> ingredientDetailTableList() {
+        var result = ingredientDetailRepository.fn_ingredient_detail_table_get_all();
+        return result;
+    }
+
     @GetMapping("/api/ingredientDetail/{id}")
     public IngredientDetail show(@PathVariable String id) {
         long p_id = Long.parseLong(id);

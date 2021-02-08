@@ -23,4 +23,8 @@ public interface IngredientDetailRepository extends JpaRepository<IngredientDeta
 
     @Query(value = "select * from public.fn_ingredient_detail_get_by_ingredient_id(?1)", nativeQuery = true)
     IngredientDetail fn_ingredient_detail_get_by_ingredient_id(long p_ingredient_id);
+
+    @Query(value = "select * from public.fn_ingredient_detail_table_get_all()", nativeQuery = true)
+    List<IngredientDetail> fn_ingredient_detail_table_get_all();
+
 }
