@@ -34,6 +34,12 @@ public class Pizza {
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "description")
+    private String description;
+
     public Long getPizzaId() {
         return this.pizzaId;
     }
@@ -88,5 +94,21 @@ public class Pizza {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

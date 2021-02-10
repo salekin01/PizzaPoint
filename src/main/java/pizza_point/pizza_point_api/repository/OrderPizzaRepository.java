@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface OrderPizzaRepository extends JpaRepository<OrderPizza, Long> {
 
-    @Query(value = "call public.sp_order_pizza_create(?1,?2,?3,?4,?5,?6,0)", nativeQuery = true)
-    int sp_order_pizza_create(long p_pizza_id, long p_customer_id, int p_quantity, int p_discount,
-                              BigDecimal p_total_price, LocalDateTime p_required_date);
+    @Query(value = "call public.sp_order_pizza_create(?1,?2,?3,?4,?5,0)", nativeQuery = true)
+    long sp_order_pizza_create(long p_pizza_id, int p_quantity, int p_discount,
+                              BigDecimal p_total_price, String p_email);
 
     @Query(value = "call public.sp_order_pizza_update(?1,?2,?3,?4,?5,?6,?7,0)", nativeQuery = true)
     int sp_order_pizza_update(long p_order_pizza_id, long p_pizza_id, long p_customer_id, int p_quantity,

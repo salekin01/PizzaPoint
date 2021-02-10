@@ -44,6 +44,9 @@ public class OrderPizza {
     @Column(name = "ship_via")
     private String shipVia;
 
+    @Column(name = "email")
+    private String email;
+
     public Long getOrderPizzaId() {
         return this.orderPizzaId;
     }
@@ -122,5 +125,13 @@ public class OrderPizza {
 
     public void setShipVia(String shipVia) {
         this.shipVia = shipVia;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

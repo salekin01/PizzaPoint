@@ -26,12 +26,12 @@ public class OrderPizzaController {
     }
 
     @PostMapping("/api/orderPizza")
-    public int create(@RequestBody OrderPizza body){
+    public long create(@RequestBody OrderPizza body){
         try {
-            var result = orderPizzaRepository.sp_order_pizza_create(body.getPizzaId(), body.getCustomerId(), body.getQuantity(),
-                                                       body.getDiscount(), body.getTotalPrice(), body.getRequiredDate());
-            if(result == 1) {
-                return 1;
+            var ordered_pizza_id = orderPizzaRepository.sp_order_pizza_create(body.getPizzaId(), body.getQuantity(),
+                                                       body.getDiscount(), body.getTotalPrice(), body.getEmail());
+            if(ordered_pizza_id > 0) {
+                return ordered_pizza_id;
             }
         }
         catch (Exception e){

@@ -19,6 +19,12 @@ public class BakerGoodsController {
         return result;
     }
 
+    @GetMapping("/api/bakerGoodsForCustomer")
+    public List<BakerGoods> bakerGoodsListForCustomer() {
+        var result = bakerGoodsRepository.fn_baker_goods_for_customer_get_all();
+        return result;
+    }
+
     @GetMapping("/api/bakerGoods/{id}")
     public BakerGoods show(@PathVariable String id) {
         long p_id = Long.parseLong(id);

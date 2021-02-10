@@ -24,6 +24,10 @@ public interface BakerGoodsRepository extends JpaRepository<BakerGoods, Long> {
     @Query(value = "select * from public.fn_baker_goods_get_all()", nativeQuery = true)
     List<BakerGoods> fn_baker_goods_get_all();
 
+    @Query(value = "select * from public.fn_baker_goods_for_customer_get_all()", nativeQuery = true)
+    List<BakerGoods> fn_baker_goods_for_customer_get_all();
+
+
     @Query(value = "select * from public.fn_baker_goods_get_by_baker_goods_id(?1)", nativeQuery = true)
     BakerGoods fn_baker_goods_get_by_baker_goods_id(long p_baker_goods_id);
 }

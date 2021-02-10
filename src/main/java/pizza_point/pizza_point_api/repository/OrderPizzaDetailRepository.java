@@ -13,6 +13,9 @@ public interface OrderPizzaDetailRepository extends JpaRepository<OrderPizzaDeta
     @Query(value = "call public.sp_order_pizza_detail_create(?1,?2,0)", nativeQuery = true)
     int sp_order_pizza_detail_create(long p_order_pizza_id, long p_baker_goods_id);
 
+    @Query(value = "call public.sp_order_pizza_detail_create_by_ordered_id(?1,?2,0)", nativeQuery = true)
+    int sp_order_pizza_detail_create_by_ordered_id(long p_order_pizza_id, long p_baker_goods_id);
+
     @Query(value = "call public.sp_order_pizza_detail_update(?1,?2,?3,0)", nativeQuery = true)
     int sp_order_pizza_detail_update(long p_order_pizza_detail_id, long p_order_pizza_id, long p_baker_goods_id);
 

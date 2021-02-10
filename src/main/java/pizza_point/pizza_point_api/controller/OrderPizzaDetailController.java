@@ -44,6 +44,20 @@ public class OrderPizzaDetailController {
         }
         return 0;
     }
+
+    @PostMapping("/api/orderPizzaDetailByOrderedId/{orderPizzaId}")
+    public int createByOrderedId(@PathVariable long orderPizzaId, @RequestBody OrderPizzaDetail body){
+        try {
+            var result = orderPizzaDetailRepository.sp_order_pizza_detail_create_by_ordered_id(orderPizzaId, body.getBakerGoodsId());
+            if(result == 1) {
+                return 1;
+            }
+        }
+        catch (Exception e){
+        }
+        return 0;
+    }
+
     @PostMapping("/api/orderPizzaDetail/{id}")
     public int update(@RequestBody OrderPizzaDetail body){
         try {
