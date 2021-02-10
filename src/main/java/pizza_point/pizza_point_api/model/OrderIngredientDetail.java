@@ -30,6 +30,13 @@ public class OrderIngredientDetail {
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 
+    //----------------------------------------------------------------------------
+    @Column(name = "ingredient_id")
+    private Long ingredientId;
+
+    @Column(name = "units_in_stock")
+    private int unitsInStock;
+
     public Long getOrderIngredientDetailId() {
         return this.orderIngredientDetailId;
     }
@@ -76,5 +83,21 @@ public class OrderIngredientDetail {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Long getIngredientId() {
+        return ingredientId;
+    }
+
+    public void setIngredientId(Long ingredientId) {
+        this.ingredientId = ingredientId;
+    }
+
+    public int getUnitsInStock() {
+        return unitsInStock;
+    }
+
+    public void setUnitsInStock(int unitsInStock) {
+        this.unitsInStock = unitsInStock;
     }
 }

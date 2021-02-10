@@ -3,6 +3,7 @@ package pizza_point.pizza_point_api.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,12 +13,6 @@ public class OrderIngredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_ingredient_id")
     private Long orderIngredientId;
-
-    @Column(name = "baker_id")
-    private Long bakerId;
-
-    @Column(name = "supplier_id")
-    private Long supplierId;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "order_date")
@@ -33,7 +28,20 @@ public class OrderIngredient {
 
     @Column(name = "ship_via")
     private String shipVia;
-
+    //-----------------------------------------------------------------------------------------
+    @Column(name = "supplier_goods_id")
+    private Long supplierGoodsId;
+    @Column(name = "ingredient_id")
+    private Long ingredientId;
+    @Column(name = "supplier_id")
+    private Long supplierId;
+    @Column(name = "units_in_stock")
+    private int unitsInStock;
+    @Column(name = "total_price")
+    private BigDecimal totalPrice;
+    @Column(name = "baker_id")
+    private Long bakerId;
+    //------------------------------------------------------------------------------------------
     public Long getOrderIngredientId() {
         return this.orderIngredientId;
     }
@@ -88,5 +96,38 @@ public class OrderIngredient {
 
     public void setShipVia(String shipVia) {
         this.shipVia = shipVia;
+    }
+    //---------------------------------------------------------------------------------
+
+    public Long getIngredientId() {
+        return ingredientId;
+    }
+
+    public void setIngredientId(Long ingredientId) {
+        this.ingredientId = ingredientId;
+    }
+
+    public int getUnitsInStock() {
+        return unitsInStock;
+    }
+
+    public void setUnitsInStock(int unitsInStock) {
+        this.unitsInStock = unitsInStock;
+    }
+
+    public Long getSupplierGoodsId() {
+        return supplierGoodsId;
+    }
+
+    public void setSupplierGoodsId(Long supplierGoodsId) {
+        this.supplierGoodsId = supplierGoodsId;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

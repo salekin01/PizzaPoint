@@ -15,7 +15,8 @@ public class BakerGoodsController {
 
     @GetMapping("/api/bakerGoods")
     public List<BakerGoods> bakerGoodsList() {
-        return bakerGoodsRepository.fn_baker_goods_get_all();
+        var result = bakerGoodsRepository.fn_baker_goods_get_all();
+        return result;
     }
 
     @GetMapping("/api/bakerGoods/{id}")
@@ -28,7 +29,7 @@ public class BakerGoodsController {
     @PostMapping("/api/bakerGoods")
     public int create(@RequestBody BakerGoods body){
         try {
-            var result = bakerGoodsRepository.sp_baker_goods_create(body.getSupplierGoodsId(), body.getQuantityPerUnit(), body.getUnitPrice(),
+            var result = bakerGoodsRepository.sp_baker_goods_create(body.getIngredientId(), body.getQuantityPerUnit(), body.getUnitPrice(),
                                                        body.getUnitsInStock(), body.getHidden());
             if(result == 1) {
                 return 1;
@@ -41,7 +42,7 @@ public class BakerGoodsController {
     @PostMapping("/api/bakerGoods/{id}")
     public int update(@RequestBody BakerGoods body){
         try {
-            var result = bakerGoodsRepository.sp_baker_goods_update(body.getBakerGoodsId(), body.getSupplierGoodsId(), body.getQuantityPerUnit(),
+            var result = bakerGoodsRepository.sp_baker_goods_update(body.getBakerGoodsId(), body.getIngredientId(), body.getQuantityPerUnit(),
                                                        body.getUnitPrice(),body.getUnitsInStock(), body.getHidden());
             if(result == 1) {
                 return 1;

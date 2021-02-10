@@ -14,8 +14,8 @@ public class BakerGoods {
     @Column(name = "baker_goods_id")
     private Long bakerGoodsId;
 
-    @Column(name = "supplier_goods_id")
-    private Long supplierGoodsId;
+    @Column(name = "ingredient_id")
+    private Long ingredientId;
 
     @Column(name = "quantity_per_unit")
     private int quantityPerUnit;
@@ -37,6 +37,26 @@ public class BakerGoods {
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
 
+    //------------------------------------------------------------------------
+
+    @Column(name = "ingredient_name")
+    private String ingredientName;
+
+    @Column(name = "ingredient_category_id")
+    private Long ingredientCategoryId;
+
+    @Column(name = "regional_province_id")
+    private Long regionalProvinceId;
+
+    @Column(name = "category_name")
+    private String ingredientCategoryName;
+
+    @Column(name = "regional_province_name")
+    private String regionalProvinceName;
+
+    //---------------------------------------------------------------------
+
+
     public Long getBakerGoodsId() {
         return this.bakerGoodsId;
     }
@@ -45,12 +65,12 @@ public class BakerGoods {
         this.bakerGoodsId = bakerGoodsId;
     }
 
-    public Long getSupplierGoodsId() {
-        return this.supplierGoodsId;
+    public Long getIngredientId() {
+        return ingredientId;
     }
 
-    public void setSupplierGoodsId(Long supplierGoodsId) {
-        this.supplierGoodsId = supplierGoodsId;
+    public void setIngredientId(Long ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
     public int getQuantityPerUnit() {
@@ -99,5 +119,47 @@ public class BakerGoods {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    //---------------------------------------------------------------------
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
+    public Long getIngredientCategoryId() {
+        return ingredientCategoryId;
+    }
+
+    public void setIngredientCategoryId(Long ingredientCategoryId) {
+        this.ingredientCategoryId = ingredientCategoryId;
+    }
+
+    public Long getRegionalProvinceId() {
+        return regionalProvinceId;
+    }
+
+    public void setRegionalProvinceId(Long regionalProvinceId) {
+        this.regionalProvinceId = regionalProvinceId;
+    }
+
+    public String getIngredientCategoryName() {
+        return ingredientCategoryName;
+    }
+
+    public void setIngredientCategoryName(String ingredientCategoryName) {
+        this.ingredientCategoryName = ingredientCategoryName;
+    }
+
+    public String getRegionalProvinceName() {
+        return regionalProvinceName;
+    }
+
+    public void setRegionalProvinceName(String regionalProvinceName) {
+        this.regionalProvinceName = regionalProvinceName;
     }
 }

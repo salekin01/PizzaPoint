@@ -15,6 +15,9 @@ public interface OrderIngredientDetailRepository extends JpaRepository<OrderIngr
     int sp_order_ingredient_detail_create(long p_order_ingredient_id, long p_supplier_goods_id,
                                           int p_quantity, BigDecimal p_total_price);
 
+    @Query(value = "call public.sp_order_ingredient_detail_create_by_ordered_id(?1,?2,?3,?4,0)", nativeQuery = true)
+    int sp_order_ingredient_detail_create_by_ordered_id(long p_order_ingredient_id, long p_supplier_goods_id, long p_ingredient_id, int p_units_in_stock);
+
     @Query(value = "call public.sp_order_ingredient_detail_update(?1,?2,?3,?4,?5,0)", nativeQuery = true)
     int sp_order_ingredient_detail_update(long p_order_ingredient_detail_id, long p_order_ingredient_id,
                                           long p_supplier_goods_id, int p_quantity, BigDecimal p_total_price);

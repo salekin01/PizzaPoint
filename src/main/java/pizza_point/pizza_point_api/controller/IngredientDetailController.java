@@ -18,6 +18,12 @@ public class IngredientDetailController {
         var result = ingredientDetailRepository.fn_ingredient_detail_get_all();
         return result;
     }
+    @GetMapping("/api/ingredientDetailListByProvinceId/{id}")
+    public List<IngredientDetail> ingredientDetailListByRegionalProvinceId(@PathVariable String id) {
+        long p_id = Long.parseLong(id);
+        var result = ingredientDetailRepository.fn_ingredient_detail_get_all_by_regional_province_id(p_id);
+        return result;
+    }
 
     @GetMapping("/api/ingredientDetailTable")   //Does not work
     public List<IngredientDetail> ingredientDetailTableList() {

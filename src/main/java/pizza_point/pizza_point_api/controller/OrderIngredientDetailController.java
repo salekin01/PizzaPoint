@@ -37,10 +37,10 @@ public class OrderIngredientDetailController {
         }
         return 0;
     }
-    @PostMapping("/api/orderIngredientDetail/{id}")
-    public int update(@RequestBody OrderIngredientDetail body){
+    @PostMapping("/api/orderIngredientDetailByOrderedId/{orderedId}")
+    public int createUsingOrderedId(@PathVariable long orderedId, @RequestBody OrderIngredientDetail body){
         try {
-            var result = orderIngredientDetailRepository.sp_order_ingredient_detail_update(body.getOrderIngredientDetailId(), body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
+            var result = orderIngredientDetailRepository.sp_order_ingredient_detail_create_by_ordered_id(orderedId, body.getSupplierGoodsId(),  body.getIngredientId(), body.getUnitsInStock());
             if(result == 1) {
                 return 1;
             }
@@ -48,6 +48,17 @@ public class OrderIngredientDetailController {
         catch (Exception e){
         }
         return 0;
+    }
+
+    @PostMapping("/api/orderIngredientDetail/{id}")
+    public int update(@RequestBody OrderIngredientDetail body){
+        try {
+            var result = orderIngredientDetailRepository.sp_order_ingredient_detail_update(body.getOrderIngredientDetailId(), body.getOrderIngredientId(), body.getSupplierGoodsId(), body.getQuantity(), body.getTotalPrice());
+            return 1;
+        }
+        catch (Exception e){
+            return 0;
+        }
     }
 
     @DeleteMapping("/api/orderIngredientDetail/{id}")
