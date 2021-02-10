@@ -18,9 +18,9 @@ public class OrderPizzaDetailController {
         return orderPizzaDetailRepository.fn_order_pizza_detail_get_all();
     }
 
-    @GetMapping("/api/orderPizzaDetailByPizzaId/{id}")
-    public List<OrderPizzaDetail> orderPizzaDetailListByPizzaId(@PathVariable String id) {
-        long p_id = Long.parseLong(id);
+    @GetMapping("/api/orderPizzaDetailByPizzaId/{oderPizzaId}")
+    public List<OrderPizzaDetail> orderPizzaDetailListByPizzaId(@PathVariable String oderPizzaId) {
+        long p_id = Long.parseLong(oderPizzaId);
         var result = orderPizzaDetailRepository.fn_order_pizza_detail_get_by_order_pizza_id(p_id);
         return result;
     }

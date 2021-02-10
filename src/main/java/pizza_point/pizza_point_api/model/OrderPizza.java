@@ -44,8 +44,31 @@ public class OrderPizza {
     @Column(name = "ship_via")
     private String shipVia;
 
+    @Column(name = "canceled")
+    private boolean canceled;
+
+    //---------------------------------------------------------------------------------
+
     @Column(name = "email")
     private String email;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "pizza_name")
+    private String pizzaName;
+
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "size_in_inch")
+    private int sizeInInch;
+
+    @Column(name = "size_in_text")
+    private String sizeInText;
+
+    @Column(name = "total_slice")
+    private int totalSlice;
 
     public Long getOrderPizzaId() {
         return this.orderPizzaId;
@@ -133,5 +156,61 @@ public class OrderPizza {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPizzaName() {
+        return pizzaName;
+    }
+
+    public void setPizzaName(String pizzaName) {
+        this.pizzaName = pizzaName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getSizeInInch() {
+        return sizeInInch;
+    }
+
+    public void setSizeInInch(int sizeInInch) {
+        this.sizeInInch = sizeInInch;
+    }
+
+    public String getSizeInText() {
+        return sizeInText;
+    }
+
+    public void setSizeInText(String sizeInText) {
+        this.sizeInText = sizeInText;
+    }
+
+    public int getTotalSlice() {
+        return totalSlice;
+    }
+
+    public void setTotalSlice(int totalSlice) {
+        this.totalSlice = totalSlice;
+    }
+
+    public boolean getCanceled() {
+        return canceled;
+    }
+
+    public void setCanceled(boolean canceled) {
+        this.canceled = canceled;
     }
 }

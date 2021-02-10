@@ -28,7 +28,8 @@ public class PizzaController {
     @PostMapping("/api/pizza")
     public int create(@RequestBody Pizza body){
         try {
-            var result = pizzaRepository.sp_pizza_create(body.getPizzaName(), body.getPizzaSizeId(), body.getPrice(), body.getInStock());
+            var result = pizzaRepository.sp_pizza_create(body.getPizzaName(), body.getPizzaSizeId(),
+                    body.getPrice(), body.getInStock(), body.getImageUrl(), body.getDescription());
             if(result == 1) {
                 return 1;
             }
@@ -40,7 +41,8 @@ public class PizzaController {
     @PostMapping("/api/pizza/{id}")
     public int update(@RequestBody Pizza body){
         try {
-            var result = pizzaRepository.sp_pizza_update(body.getPizzaId(), body.getPizzaName(), body.getPizzaSizeId(), body.getPrice(), body.getInStock());
+            var result = pizzaRepository.sp_pizza_update(body.getPizzaId(), body.getPizzaName(), body.getPizzaSizeId(),
+                    body.getPrice(), body.getInStock(),body.getImageUrl(),body.getDescription());
             if(result == 1) {
                 return 1;
             }

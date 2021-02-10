@@ -23,6 +23,16 @@ public class OrderPizzaDetail {
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 
+    //-------------------------------------------------------------
+    @Column(name = "ingredient_name")
+    private String ingredientName;
+
+    @Column(name = "regional_province_name")
+    private String regionalProvinceName;
+
+    @Column(name = "ingredient_id")
+    private Long ingredientId;
+
     public Long getOrderPizzaDetailId() {
         return this.orderPizzaDetailId;
     }
@@ -53,5 +63,29 @@ public class OrderPizzaDetail {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
+    public String getRegionalProvinceName() {
+        return regionalProvinceName;
+    }
+
+    public void setRegionalProvinceName(String regionalProvinceName) {
+        this.regionalProvinceName = regionalProvinceName;
+    }
+
+    public Long getIngredientId() {
+        return ingredientId;
+    }
+
+    public void setIngredientId(Long ingredientId) {
+        this.ingredientId = ingredientId;
     }
 }

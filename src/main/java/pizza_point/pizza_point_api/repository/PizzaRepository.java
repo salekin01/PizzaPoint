@@ -10,11 +10,11 @@ import java.util.List;
 
 @Repository
 public interface PizzaRepository extends JpaRepository<Pizza, Long> {
-    @Query(value = "call public.sp_pizza_create(?1,?2,?3,?4,0)", nativeQuery = true)
-    int sp_pizza_create(String p_pizza_name, long p_pizza_size_id, BigDecimal p_price, long p_in_stock);
+    @Query(value = "call public.sp_pizza_create(?1,?2,?3,?4,?5,?6,0)", nativeQuery = true)
+    int sp_pizza_create(String p_pizza_name, long p_pizza_size_id, BigDecimal p_price, long p_in_stock, String p_image_url, String p_description);
 
-    @Query(value = "call public.sp_pizza_update(?1,?2,?3,?4,?5,0)", nativeQuery = true)
-    int sp_pizza_update(long p_pizza_id, String p_pizza_name, long p_pizza_size_id, BigDecimal p_price, long p_in_stock);
+    @Query(value = "call public.sp_pizza_update(?1,?2,?3,?4,?5,?6,?7,0)", nativeQuery = true)
+    int sp_pizza_update(long p_pizza_id, String p_pizza_name, long p_pizza_size_id, BigDecimal p_price, long p_in_stock, String p_image_url, String p_description);
 
     @Query(value = "call public.sp_pizza_delete(?1,0)", nativeQuery = true)
     int sp_pizza_delete(long p_pizza_id);

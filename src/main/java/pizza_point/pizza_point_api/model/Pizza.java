@@ -40,6 +40,16 @@ public class Pizza {
     @Column(name = "description")
     private String description;
 
+    //----------------------------------------------------------------------------
+    @Column(name = "size_in_inch")
+    private int sizeInInch;
+
+    @Column(name = "size_in_text")
+    private String sizeInText;
+
+    @Column(name = "total_slice")
+    private int totalSlice;
+
     public Long getPizzaId() {
         return this.pizzaId;
     }
@@ -110,5 +120,29 @@ public class Pizza {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getSizeInInch() {
+        return sizeInInch;
+    }
+
+    public void setSizeInInch(int sizeInInch) {
+        this.sizeInInch = sizeInInch;
+    }
+
+    public String getSizeInText() {
+        return sizeInText;
+    }
+
+    public void setSizeInText(String sizeInText) {
+        this.sizeInText = sizeInText;
+    }
+
+    public int getTotalSlice() {
+        return totalSlice;
+    }
+
+    public void setTotalSlice(int totalSlice) {
+        this.totalSlice = totalSlice;
     }
 }

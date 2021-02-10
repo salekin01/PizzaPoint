@@ -38,6 +38,20 @@ public class OrderPizzaController {
         }
         return 0;
     }
+
+    @PostMapping("/api/orderPizzaCancel")
+    public long cancelOrder(@RequestBody OrderPizza body){
+        try {
+            var result = orderPizzaRepository.sp_order_pizza_cancel(body.getOrderPizzaId(), body.getCanceled());
+            if(result == 1) {
+                return 1;
+            }
+        }
+        catch (Exception e){
+        }
+        return 0;
+    }
+
     @PostMapping("/api/orderPizza/{id}")
     public int update(@RequestBody OrderPizza body){
         try {
