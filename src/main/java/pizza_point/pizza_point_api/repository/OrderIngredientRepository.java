@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 import pizza_point.pizza_point_api.model.OrderIngredient;
-import pizza_point.pizza_point_api.model.T_Order;
-
 import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;

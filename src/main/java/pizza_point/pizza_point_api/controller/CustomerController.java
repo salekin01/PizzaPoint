@@ -24,6 +24,12 @@ public class CustomerController {
         var result = customerRepository.fn_customer_get_by_customer_id(p_id);
         return result;
     }
+    @GetMapping("/api/customerByEmailId/{email}")
+    public Customer showByEmailId(@PathVariable String email) {
+        var result = customerRepository.fn_customer_get_by_customer_email(email);
+        return result;
+    }
+
 
     @PostMapping("/api/customer")
     public int create(@RequestBody Customer body){

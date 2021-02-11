@@ -3,9 +3,8 @@ package pizza_point.pizza_point_api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pizza_point.pizza_point_api.model.OrderIngredient;
-import pizza_point.pizza_point_api.model.T_Order;
 import pizza_point.pizza_point_api.repository.OrderIngredientRepository;
-import pizza_point.pizza_point_api.repository.T_OrderRepo;
+
 
 import java.math.BigDecimal;
 import java.util.List;

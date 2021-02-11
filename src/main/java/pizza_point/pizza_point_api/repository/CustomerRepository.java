@@ -23,4 +23,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query(value = "select * from public.fn_customer_get_by_customer_id(?1)", nativeQuery = true)
     Customer fn_customer_get_by_customer_id(long p_customer_id);
+
+    @Query(value = "select * from public.fn_customer_get_by_customer_email(?1)", nativeQuery = true)
+    Customer fn_customer_get_by_customer_email(String p_email);
+
 }
