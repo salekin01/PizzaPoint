@@ -26,6 +26,9 @@ public interface OrderPizzaRepository extends JpaRepository<OrderPizza, Long> {
     @Query(value = "select * from public.fn_order_pizza_get_all()", nativeQuery = true)
     List<OrderPizza> fn_order_pizza_get_all();
 
+    @Query(value = "select * from public.fn_order_pizza_get_all_By_Customer_Email(?1)", nativeQuery = true)
+    List<OrderPizza> fn_order_pizza_get_all_By_Customer_Email(String email);
+
     @Query(value = "select * from public.fn_order_pizza_get_by_order_pizza_id(?1)", nativeQuery = true)
     OrderPizza fn_order_pizza_get_by_order_pizza_id(long p_order_pizza_id);
 

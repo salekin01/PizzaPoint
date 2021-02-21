@@ -18,6 +18,11 @@ public class OrderPizzaController {
         return orderPizzaRepository.fn_order_pizza_get_all();
     }
 
+    @GetMapping("/api/orderPizzaByCustomerEmail/{email}")
+    public List<OrderPizza> orderPizzaList(@PathVariable String email) {
+        return orderPizzaRepository.fn_order_pizza_get_all_By_Customer_Email(email);
+    }
+
     @GetMapping("/api/orderPizza/{id}")
     public OrderPizza show(@PathVariable String id) {
         long p_id = Long.parseLong(id);
