@@ -19,6 +19,12 @@ public class SupplierGoodsController {
         return result;
     }
 
+    @GetMapping("/api/supplierGoodsListForBaker")
+    public List<SupplierGoods> supplierGoodsListForBaker() {
+        var result = supplierGoodsRepository.fn_supplier_goods_for_baker_get_all();
+        return result;
+    }
+
     @GetMapping("/api/supplierGoods/{id}")
     public SupplierGoods show(@PathVariable String id) {
         long p_id = Long.parseLong(id);

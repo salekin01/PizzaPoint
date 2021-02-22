@@ -24,6 +24,9 @@ public interface SupplierGoodsRepository extends JpaRepository<SupplierGoods, Lo
     @Query(value = "select * from public.fn_supplier_goods_get_all()", nativeQuery = true)
     List<SupplierGoods> fn_supplier_goods_get_all();
 
+    @Query(value = "select * from public.fn_supplier_goods_for_baker_get_all()", nativeQuery = true)
+    List<SupplierGoods> fn_supplier_goods_for_baker_get_all();
+
     @Query(value = "select * from public.fn_supplier_goods_get_by_supplier_goods_id(?1)", nativeQuery = true)
     SupplierGoods fn_supplier_goods_get_by_supplier_goods_id(long p_supplier_goods_id);
 }
